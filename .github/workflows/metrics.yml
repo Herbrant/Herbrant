@@ -1,0 +1,48 @@
+name: Metrics
+
+on:
+  # Aggiornamento giornaliero a mezzanotte (UTC)
+  schedule: [{cron: "0 0 * * *"}]
+  # Esecuzione manuale dalla tab "Actions"
+  workflow_dispatch:
+  # Rigenera le metriche a ogni push su master
+  push: {branches: ["master"]}
+
+jobs:
+  github-metrics:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      # Panoramica generale: header, attività, repository + linguaggi e calendario isometrico
+      - name: Overview
+        uses: lowlighter/metrics@65836723097537a54cd8eb90f61839426b4266b6 # v3.34
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: Herbrant
+          filename: metrics.svg
+          template: classic
+          base: header, activity, community, repositories, metadata
+          config_timezone: Europe/Rome
+          plugin_languages: yes
+          plugin_languages_limit: 8
+          plugin_languages_details: percentage
+          plugin_languages_ignored: html, css, tex, jupyter notebook
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: full-year
+
+      # Abitudini di commit e statistiche sul codice scritto
+      - name: Habits
+        uses: lowlighter/metrics@65836723097537a54cd8eb90f61839426b4266b6 # v3.34
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: Herbrant
+          filename: metrics.plugin.habits.svg
+          base: ""
+          config_timezone: Europe/Rome
+          plugin_habits: yes
+          plugin_habits_from: 200
+          plugin_habits_days: 14
+          plugin_habits_facts: yes
+          plugin_habits_charts: yes
+          plugin_lines: yes

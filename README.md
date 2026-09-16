@@ -1,6 +1,11 @@
 ### Hi there 👋
 
-[![Davide Carnemolla's github stats](https://github-readme-stats.vercel.app/api?username=Herbrant&show_icons=true&count_private=true)](https://github.com/Herbrant)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Herbrant/Herbrant/master/metrics.svg" alt="Metrics">
+</p>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Herbrant/Herbrant/master/metrics.plugin.habits.svg" alt="Habits">
+</p>
 
 <!--
 **Herbrant/Herbrant** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
