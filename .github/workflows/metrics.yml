@@ -39,22 +39,9 @@ jobs:
           plugin_languages_ignored: html, css, tex, jupyter notebook
           plugin_isocalendar: yes
           plugin_isocalendar_duration: full-year
-
-      # Abitudini di commit e statistiche sul codice scritto
-      - name: Habits
-        uses: lowlighter/metrics@65836723097537a54cd8eb90f61839426b4266b6 # v3.34
-        with:
-          token: ${{ secrets.METRICS_TOKEN }}
-          user: Herbrant
-          filename: metrics.plugin.habits.svg
-          base: ""
-          config_timezone: Europe/Rome
-          plugin_habits: yes
-          plugin_habits_from: 200
-          plugin_habits_days: 14
-          plugin_habits_facts: yes
-          plugin_habits_charts: yes
           plugin_lines: yes
-          # `base` = solo totale righe aggiunte/rimosse. NON usare `repositories`:
-          # elencherebbe i repo per nome, inclusi i privati.
+          # `base` = solo totale righe aggiunte/rimosse, mostrato nella sezione
+          # base.repositories. NON usare `repositories`: elencherebbe i repo per
+          # nome, inclusi i privati.
           plugin_lines_sections: base
+
