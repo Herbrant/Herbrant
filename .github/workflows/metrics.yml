@@ -30,9 +30,10 @@ jobs:
           template: classic
           base: header, activity, community, repositories, metadata
           config_timezone: Europe/Rome
-          # Solo i repo di cui sei owner. Aggiungi `organization_member` (e lo scope
-          # read:org al token) per includere anche i privati delle organizzazioni.
-          repositories_affiliations: owner
+          # Vuoto = nessun vincolo di affiliazione. Con `owner` metrics aggiunge anche
+          # un filtro `affiliations: [OWNER]` relativo al viewer che restituisce un
+          # insieme vuoto, azzerando stelle, fork, watcher, release e linguaggi.
+          repositories_affiliations: ""
           plugin_languages: yes
           plugin_languages_limit: 8
           plugin_languages_details: percentage
