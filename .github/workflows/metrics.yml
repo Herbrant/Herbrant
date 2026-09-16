@@ -41,8 +41,6 @@ jobs:
           plugin_languages_limit: 8
           plugin_languages_details: percentage
           plugin_languages_ignored: html, css, tex, jupyter notebook
-          plugin_isocalendar: yes
-          plugin_isocalendar_duration: full-year
           plugin_lines: yes
           # `base` = solo totale righe aggiunte/rimosse, mostrato nella sezione
           # base.repositories. NON usare `repositories`: elencherebbe i repo per
