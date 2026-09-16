@@ -36,7 +36,7 @@ jobs:
           # Batch ridotto: a 100 la query GraphQL va in timeout e base/index.mjs la
           # ingoia silenziosamente, lasciando la lista dei repository vuota (stelle,
           # fork, watcher, release e linguaggi tutti a zero).
-          repositories_batch: 20
+          repositories_batch: 50
           plugin_languages: yes
           plugin_languages_limit: 8
           plugin_languages_details: percentage
@@ -48,4 +48,7 @@ jobs:
           # base.repositories. NON usare `repositories`: elencherebbe i repo per
           # nome, inclusi i privati.
           plugin_lines_sections: base
+          # La REST API risponde 202 finché non ha finito di calcolare le statistiche
+          # dei contributori: senza una seconda interrogazione il totale resta a zero.
+          plugin_lines_delay: 30
 
